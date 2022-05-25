@@ -1,0 +1,568 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Title.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Title/Nebula Aqua-Pink.png" type="Texture" id=2]
+[ext_resource path="res://Title/Link_ALTTP.png" type="Texture" id=3]
+[ext_resource path="res://Title/kindpng_2555898.png" type="Texture" id=4]
+[ext_resource path="res://Title/989547.png" type="Texture" id=5]
+[ext_resource path="res://Title/logo_vertical_color_dark.png" type="Texture" id=6]
+[ext_resource path="res://Title/Retro.png" type="Texture" id=7]
+[ext_resource path="res://Title/ring.png" type="Texture" id=8]
+[ext_resource path="res://Title/Title.tres" type="Theme" id=9]
+[ext_resource path="res://ponged.png" type="Texture" id=10]
+[ext_resource path="res://level.tres" type="Animation" id=11]
+
+[sub_resource type="GDScript" id=8]
+script/source = "extends Node2D
+
+var finished = false
+var type = ''
+
+func _input(event):
+	if event.is_pressed() and !finished:
+		$AudioStreamPlayer.seek(10.8)
+		$AnimationPlayer.seek(10.8, true)
+		finished = true
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == 'auto':
+		finished = true
+	elif anim_name == 'level':
+		get_tree().change_scene(\"res://Levels/\"+type+\"/Title.tscn\")
+
+func _on_Sonic_pressed():
+	type = 'Ponic'
+	$AnimationPlayer.play(\"level\")
+func _on_Link_pressed():
+	type = 'Polda'
+	$AnimationPlayer.play(\"level\")
+func _on_Mario_pressed():
+	type = 'Porio'
+	$AnimationPlayer.play(\"level\")
+"
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Godot:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Retro:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Retro:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Retro/Sprite3D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Retro/Sprite3D/OmniLight:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Retro/Node2D:use_parent_material")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Retro:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 160, 112 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Retro/Sprite3D2:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Retro/Sprite3D3:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Retro/Sprite3D2/OmniLight:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Retro/Sprite3D3/OmniLight:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Retro/Node2D:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Ponged:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 160, -112 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Ponged:hframes")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 19 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Ponged:frame")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 9 ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Ponged:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "auto"
+length = 12.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Godot:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.7, 4.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Retro:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Retro/Sprite3D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 10.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Retro/Sprite3D/OmniLight:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 11.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Retro/Sprite3D2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 11 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Retro/Sprite3D3:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 11.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Retro/Sprite3D2/OmniLight:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 11.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Retro/Sprite3D3/OmniLight:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 11.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Retro/Node2D:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 12 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Retro:position")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 6.6, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 160, 112 ), Vector2( 160, 112 ), Vector2( 160, -112 ) ]
+}
+
+[node name="Spatial" type="Node2D"]
+script = SubResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Godot" type="Sprite" parent="."]
+visible = false
+position = Vector2( 160, 112 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 6 )
+
+[node name="Retro" type="Sprite" parent="."]
+visible = false
+position = Vector2( 160, 112 )
+texture = ExtResource( 7 )
+
+[node name="Sprite3D" type="Sprite" parent="Retro"]
+visible = false
+position = Vector2( 0, 155 )
+rotation = -3.14159
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 3 )
+
+[node name="OmniLight" type="Light2D" parent="Retro/Sprite3D"]
+visible = false
+position = Vector2( -70, 57.5 )
+scale = Vector2( 0.025, 0.025 )
+texture = ExtResource( 3 )
+texture_scale = 50.0
+color = Color( 0, 1, 0, 1 )
+energy = 16.0
+
+[node name="Label4" type="RichTextLabel" parent="Retro/Sprite3D/OmniLight"]
+margin_left = 5200.0
+margin_top = -3200.0
+margin_right = 5278.0
+margin_bottom = -3161.0
+rect_rotation = 180.0
+rect_scale = Vector2( 100, 100 )
+theme = ExtResource( 9 )
+bbcode_enabled = true
+bbcode_text = "[center][color=black]LINK"
+text = "LINK"
+
+[node name="Link" type="TextureButton" parent="Retro/Sprite3D/OmniLight"]
+margin_left = 6700.0
+margin_top = 1100.0
+margin_right = 6800.0
+margin_bottom = 1200.0
+rect_rotation = 180.0
+rect_scale = Vector2( 100, 100 )
+texture_normal = ExtResource( 8 )
+expand = true
+
+[node name="Sprite3D2" type="Sprite" parent="Retro"]
+position = Vector2( -100, 276 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 5 )
+
+[node name="OmniLight" type="Light2D" parent="Retro/Sprite3D2"]
+visible = false
+position = Vector2( 10, 93.333 )
+scale = Vector2( 0.025, 0.025 )
+texture = ExtResource( 5 )
+texture_scale = 50.0
+color = Color( 1, 0, 0, 1 )
+energy = 16.0
+
+[node name="Label3" type="RichTextLabel" parent="Retro/Sprite3D2/OmniLight"]
+margin_left = -11600.0
+margin_top = -7999.99
+margin_right = -11522.0
+margin_bottom = -7960.99
+rect_scale = Vector2( 300, 300 )
+theme = ExtResource( 9 )
+bbcode_enabled = true
+bbcode_text = "[center][color=blue]MARIO"
+text = "MARIO"
+
+[node name="Mario" type="TextureButton" parent="Retro/Sprite3D2/OmniLight"]
+margin_left = -14800.0
+margin_top = -11200.0
+margin_right = -14630.0
+margin_bottom = -11030.0
+rect_scale = Vector2( 150, 150 )
+texture_normal = ExtResource( 8 )
+expand = true
+
+[node name="Sprite3D3" type="Sprite" parent="Retro"]
+position = Vector2( 138, 272 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 4 )
+
+[node name="OmniLight" type="Light2D" parent="Retro/Sprite3D3"]
+visible = false
+position = Vector2( -72.5, 80 )
+scale = Vector2( 0.025, 0.025 )
+texture = ExtResource( 4 )
+texture_scale = 50.0
+color = Color( 0, 0, 1, 1 )
+energy = 16.0
+
+[node name="Label2" type="RichTextLabel" parent="Retro/Sprite3D3/OmniLight"]
+margin_left = -6900.0
+margin_top = -5200.0
+margin_right = -6822.0
+margin_bottom = -5161.0
+rect_scale = Vector2( 200, 200 )
+theme = ExtResource( 9 )
+bbcode_enabled = true
+bbcode_text = "[center][color=red]SONIC"
+text = "SONIC"
+
+[node name="Sonic" type="TextureButton" parent="Retro/Sprite3D3/OmniLight"]
+margin_left = -5800.0
+margin_top = -9100.0
+margin_right = -5650.0
+margin_bottom = -8950.0
+rect_scale = Vector2( 90, 90 )
+action_mode = 0
+texture_normal = ExtResource( 8 )
+expand = true
+
+[node name="Node2D" type="Node2D" parent="Retro"]
+visible = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Retro/Node2D"]
+margin_left = -191.0
+margin_top = 94.0
+margin_right = -42.0
+margin_bottom = 128.0
+theme = ExtResource( 9 )
+bbcode_enabled = true
+bbcode_text = "[center][rainbow]PONGED"
+text = "PONGED"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Retro/Node2D"]
+margin_left = -173.0
+margin_top = 117.0
+margin_right = -42.0
+margin_bottom = 168.0
+theme = ExtResource( 9 )
+bbcode_enabled = true
+bbcode_text = "[center][rainbow][tornado]MULTIVERSE"
+text = "MULTIVERSE"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Retro/Node2D"]
+margin_left = -151.0
+margin_top = 156.0
+margin_right = -48.0
+margin_bottom = 198.0
+theme = ExtResource( 9 )
+bbcode_enabled = true
+bbcode_text = "[rainbow]select a level"
+text = "select a level"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Retro/Node2D"]
+margin_left = -32.0
+margin_top = 288.0
+margin_right = 70.0
+margin_bottom = 324.0
+theme = ExtResource( 9 )
+bbcode_enabled = true
+bbcode_text = "[rainbow]Rising Retro "
+text = "Rising Retro "
+scroll_active = false
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="Retro/Node2D"]
+margin_left = 70.0
+margin_top = 60.0
+margin_right = 263.0
+margin_bottom = 201.0
+theme = ExtResource( 9 )
+bbcode_enabled = true
+bbcode_text = "[rainbow]
+read all the 
+controls in
+description"
+text = "
+read all the 
+controls in
+description"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "auto"
+anims/RESET = SubResource( 4 )
+anims/auto = SubResource( 3 )
+anims/level = ExtResource( 11 )
+
+[node name="Ponged" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 160, -112 )
+texture = ExtResource( 10 )
+hframes = 19
+frame = 9
+
+[connection signal="pressed" from="Retro/Sprite3D/OmniLight/Link" to="." method="_on_Link_pressed"]
+[connection signal="pressed" from="Retro/Sprite3D2/OmniLight/Mario" to="." method="_on_Mario_pressed"]
+[connection signal="pressed" from="Retro/Sprite3D3/OmniLight/Sonic" to="." method="_on_Sonic_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

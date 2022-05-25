@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/title.mp3-eff00c2dbbc944011105362b0c6946a6.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Ponic/title.mp3"
+dest_files=[ "res://.import/title.mp3-eff00c2dbbc944011105362b0c6946a6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

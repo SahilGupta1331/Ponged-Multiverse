@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/door open.wav-c128356d94046b78034d440cab6275a0.sample"
+
+[deps]
+
+source_file="res://Sounds/Polda/door open.wav"
+dest_files=[ "res://.import/door open.wav-c128356d94046b78034d440cab6275a0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

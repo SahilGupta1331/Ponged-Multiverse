@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://font.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Sounds/Ponic/won.mp3" type="AudioStream" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends CanvasLayer
+
+func _ready():
+	yield(get_tree().create_timer(7), \"timeout\")
+	Main.p1_power = ''
+	Main.p2_power = ''
+	Main.p2_score = 0
+	Main.p1_score = 0
+	get_tree().change_scene(\"res://Title/Title.tscn\")
+	get_tree().paused = false
+"
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 1 )
+
+[node name="Won" type="CanvasLayer"]
+pause_mode = 2
+script = SubResource( 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 264.0
+margin_bottom = 128.0
+custom_colors/default_color = Color( 1, 1, 0, 1 )
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]SONIC WINS!"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+autoplay = true

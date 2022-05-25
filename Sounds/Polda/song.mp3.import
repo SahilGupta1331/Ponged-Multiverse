@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/song.mp3-5b2fb5160dc406f9aa22b13e6eca7091.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Polda/song.mp3"
+dest_files=[ "res://.import/song.mp3-5b2fb5160dc406f9aa22b13e6eca7091.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

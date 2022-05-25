@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Invin.mp3-52e6421c71c9365ad1452c8d69004bf5.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Ponic/Invin.mp3"
+dest_files=[ "res://.import/Invin.mp3-52e6421c71c9365ad1452c8d69004bf5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

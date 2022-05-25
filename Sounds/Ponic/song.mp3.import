@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/song.mp3-8e9cf80c34db2b28612e234770e94541.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Ponic/song.mp3"
+dest_files=[ "res://.import/song.mp3-8e9cf80c34db2b28612e234770e94541.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

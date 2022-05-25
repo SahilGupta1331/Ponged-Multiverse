@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/won.mp3-c1ef59e9ecf404092e4d1a098cd3f4fa.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Polda/won.mp3"
+dest_files=[ "res://.import/won.mp3-c1ef59e9ecf404092e4d1a098cd3f4fa.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

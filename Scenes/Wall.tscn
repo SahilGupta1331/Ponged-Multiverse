@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends StaticBody2D
+
+func _on_up_body_entered(body):
+	body.dir.y = rand_range(0.1,1)
+
+func _on_down_body_entered(body):
+	body.dir.y = rand_range(-0.1,-1)
+"
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 160, 1 )
+
+[node name="Wall" type="StaticBody2D"]
+collision_mask = 0
+script = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 160, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 160, 224 )
+shape = SubResource( 1 )
+
+[node name="up" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="up"]
+position = Vector2( 160, 0 )
+shape = SubResource( 1 )
+
+[node name="down" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="down"]
+position = Vector2( 160, 224 )
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="up" to="." method="_on_up_body_entered"]
+[connection signal="body_entered" from="down" to="." method="_on_down_body_entered"]

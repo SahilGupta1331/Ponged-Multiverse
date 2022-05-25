@@ -1,0 +1,163 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scenes/Paddle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/Yoshi.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Ball.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Wall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sprites/ring.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/PowerUP.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/Mario.png" type="Texture" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -50 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "hurt"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -50 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -25.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "won"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -360.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -5 ), Vector2( 0, 0 ) ]
+}
+
+[node name="Level" type="Node2D"]
+
+[node name="Mario" parent="." instance=ExtResource( 1 )]
+position = Vector2( 48, 112 )
+
+[node name="Sprite" parent="Mario" index="0"]
+texture = ExtResource( 7 )
+
+[node name="Score" parent="Mario/CanvasLayer" index="0"]
+margin_left = 104.0
+margin_right = 145.0
+
+[node name="Yoshi" parent="." instance=ExtResource( 1 )]
+position = Vector2( 272, 112 )
+type = "p2"
+
+[node name="Sprite" parent="Yoshi" index="0"]
+texture = ExtResource( 2 )
+flip_h = true
+
+[node name="Score" parent="Yoshi/CanvasLayer" index="0"]
+margin_left = 192.0
+margin_right = 232.0
+
+[node name="anim" parent="Yoshi" index="3"]
+anims/die = SubResource( 1 )
+anims/hurt = SubResource( 2 )
+anims/won = SubResource( 3 )
+
+[node name="Ball" parent="." instance=ExtResource( 3 )]
+position = Vector2( 160, 70 )
+
+[node name="Wall" parent="." instance=ExtResource( 4 )]
+
+[node name="Ring" type="Sprite" parent="."]
+texture = ExtResource( 5 )
+centered = false
+
+[node name="PowerUP" parent="." instance=ExtResource( 6 )]
+position = Vector2( 161, 112 )
+index = 3
+
+[editable path="Mario"]
+[editable path="Yoshi"]

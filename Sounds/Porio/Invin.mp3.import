@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Invin.mp3-882b32303110a716a6446db8783325e0.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Porio/Invin.mp3"
+dest_files=[ "res://.import/Invin.mp3-882b32303110a716a6446db8783325e0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

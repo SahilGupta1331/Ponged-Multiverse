@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/title.mp3-62e55b8840d655e42452b9f7b3ab0d60.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Porio/title.mp3"
+dest_files=[ "res://.import/title.mp3-62e55b8840d655e42452b9f7b3ab0d60.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
